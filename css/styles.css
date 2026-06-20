@@ -22,6 +22,41 @@ body {
   line-height: 1.6;
 }
 
+body.tema-oscuro {
+  color: #f4f4f4;
+  background-color: #151515;
+}
+
+body.tema-oscuro .category-card,
+body.tema-oscuro .product-card,
+body.tema-oscuro .contact-form {
+  color: #f4f4f4;
+  background-color: #242424;
+  border-color: #444444;
+}
+
+body.tema-oscuro .section-alt {
+  background-color: #1d1d1d;
+}
+
+body.tema-oscuro .section-header p,
+body.tema-oscuro .product-info p,
+body.tema-oscuro .form-help {
+  color: #d0d0d0;
+}
+
+body.tema-oscuro input,
+body.tema-oscuro select,
+body.tema-oscuro textarea {
+  color: #f4f4f4;
+  background-color: #151515;
+  border-color: #555555;
+}
+
+body.tema-oscuro .product-card img {
+  background-color: #1a1a1a;
+}
+
 img {
   width: 100%;
   display: block;
@@ -100,11 +135,12 @@ h3 {
 
 .header-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  justify-content: flex-start;
 }
 
-.header-link,
 .cart-link {
   padding: 8px 12px;
   border-radius: 20px;
@@ -182,22 +218,24 @@ h3 {
 
 .hero {
   display: grid;
-  gap: 24px;
+  gap: 26px;
+  align-items: center;
 }
 
 .hero-content {
-  padding: 35px;
+  padding: 32px;
   border-radius: 18px;
   color: var(--blanco);
   background: linear-gradient(135deg, var(--negro), var(--morado));
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  line-height: 1.15;
 }
 
 .hero-description {
-  max-width: 700px;
+  max-width: 560px;
 }
 
 .hero-actions {
@@ -207,21 +245,27 @@ h3 {
   margin-top: 20px;
 }
 
-.hero-card,
+.mensaje-bienvenida {
+  margin: 0 0 12px;
+  font-weight: bold;
+}
+
+.hero-image img {
+  width: 100%;
+  max-height: 390px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
 .category-card,
 .product-card,
-.contact-form,
-.table-container {
+.contact-form {
   padding: 24px;
   border: 1px solid #dddddd;
   border-radius: 14px;
   background-color: var(--blanco);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
-}
-
-.hero-card ul,
-.account-benefits {
-  padding-left: 20px;
 }
 
 .btn,
@@ -244,6 +288,18 @@ h3 {
 .btn-card:hover {
   background-color: var(--morado);
   text-decoration: none;
+}
+
+button:disabled,
+.btn:disabled {
+  background-color: #999999;
+  color: #eeeeee;
+  cursor: not-allowed;
+}
+
+button:disabled:hover,
+.btn:disabled:hover {
+  background-color: #999999;
 }
 
 /* Secciones */
@@ -278,8 +334,7 @@ h3 {
 }
 
 .category-grid,
-.product-grid,
-.account-grid {
+.product-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
@@ -312,40 +367,6 @@ h3 {
   font-size: 1.3rem;
 }
 
-/* Tabla */
-.table-container {
-  overflow-x: auto;
-  padding: 0;
-}
-
-table {
-  width: 100%;
-  min-width: 700px;
-  border-collapse: collapse;
-}
-
-caption {
-  padding: 16px;
-  font-weight: bold;
-  text-align: left;
-}
-
-th,
-td {
-  padding: 14px;
-  border: 1px solid #dddddd;
-  text-align: left;
-}
-
-thead th {
-  background-color: var(--negro);
-  color: var(--blanco);
-}
-
-tbody th {
-  background-color: #f3e9f8;
-}
-
 /* Formularios */
 .contact-form {
   max-width: 820px;
@@ -374,6 +395,48 @@ textarea {
 
 textarea {
   resize: vertical;
+}
+
+.subscription-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input {
+  width: auto;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+}
+
+.error {
+  min-height: 22px;
+  margin: 6px 0 0;
+  color: #b00020;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.mensaje-exito {
+  min-height: 24px;
+  margin: 0 0 16px;
+  color: #1f7a36;
+  font-weight: bold;
+}
+
+body.tema-oscuro .error {
+  color: #ff8ca0;
+}
+
+body.tema-oscuro .mensaje-exito {
+  color: #8ee6a6;
 }
 
 /* Footer */
@@ -406,8 +469,19 @@ textarea {
     align-items: center;
   }
 
+  .header-actions {
+    justify-content: flex-end;
+  }
+
   .hero {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  }
+
+  .hero-content {
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .category-grid,
@@ -421,10 +495,6 @@ textarea {
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .account-grid {
-    grid-template-columns: 1fr 1.3fr;
   }
 }
 

@@ -30,8 +30,8 @@
       </form>
 
       <div class="header-actions">
-        <a href="#cuenta" class="header-link">Acceso</a>
         <a href="#productos" class="cart-link">🛒 Carrito: 0</a>
+        <button type="button" id="boton-tema" class="btn btn-theme">🌙 Activar modo oscuro</button>
       </div>
     </div>
 
@@ -75,15 +75,17 @@
           </details>
         </li>
         <li><a href="#categorias">Setups</a></li>
-        <li><a href="#cuenta">Mi cuenta</a></li>
+        <li><a href="#suscripcion">Suscripción</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+
   </header>
 
   <main>
     <section id="inicio" class="hero">
       <div class="hero-content">
+        <p id="mensaje-bienvenida" class="mensaje-bienvenida"></p>
         <p class="tagline">Tecnología para estudiar, trabajar y jugar</p>
         <h1>Arma tu setup gamer ideal</h1>
         <p class="hero-description">
@@ -92,19 +94,12 @@
 
         <div class="hero-actions">
           <a href="#productos" class="btn btn-primary">Ver productos</a>
-          <a href="#comparativa" class="btn">Comparar setups</a>
         </div>
       </div>
 
-      <article class="hero-card">
-        <h2>¿Por qué elegirnos?</h2>
-        <ul>
-          <li>Productos organizados por tipo de uso.</li>
-          <li>Comparación simple entre setups.</li>
-          <li>Diseño preparado para futuras compras online.</li>
-          <li>Atención personalizada para elegir el setup adecuado.</li>
-        </ul>
-      </article>
+      <div class="hero-image">
+        <img src="img/setup-gamer.jpg" alt="Persona jugando en un computador gamer con iluminación RGB">
+      </div>
     </section>
 
     <section id="categorias" class="section">
@@ -215,104 +210,41 @@
       </div>
     </section>
 
-    <section id="comparativa" class="section">
+    <section id="suscripcion" class="section">
       <div class="section-header">
-        <p class="section-kicker">Comparativa</p>
-        <h2>Tabla comparativa de setups</h2>
-        <p>Esta tabla permite comparar rápidamente productos recomendados según cada tipo de usuario.</p>
+        <p class="section-kicker">Suscripción</p>
+        <h2>Recibe novedades de SetupTech Store</h2>
+        <p>Completa tus datos para recibir ofertas, recomendaciones y próximos productos tecnológicos.</p>
       </div>
 
-      <div class="table-container">
-        <table>
-          <caption>Comparación de productos recomendados por tipo de setup</caption>
-          <thead>
-            <tr>
-              <th scope="col">Elemento</th>
-              <th scope="col">Estudio</th>
-              <th scope="col">Trabajo</th>
-              <th scope="col">Gaming</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Equipo principal</th>
-              <td>Notebook Gamer RTX 15</td>
-              <td>Notebook + monitor externo</td>
-              <td>Notebook gamer o PC gamer</td>
-            </tr>
-            <tr>
-              <th scope="row">Mouse</th>
-              <td>Mouse inalámbrico</td>
-              <td>Mouse ergonómico</td>
-              <td>Mouse Gamer RGB Pro</td>
-            </tr>
-            <tr>
-              <th scope="row">Teclado</th>
-              <td>Teclado compacto</td>
-              <td>Teclado cómodo de oficina</td>
-              <td>Teclado Mecánico RGB</td>
-            </tr>
-            <tr>
-              <th scope="row">Pantalla</th>
-              <td>Pantalla del notebook</td>
-              <td>Monitor 24” o 27”</td>
-              <td>Monitor Gamer 27” 165Hz</td>
-            </tr>
-            <tr>
-              <th scope="row">Audio</th>
-              <td>Audífonos básicos</td>
-              <td>Audífonos con micrófono</td>
-              <td>Headset Gamer Phantom</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <form id="formulario-suscripcion" class="contact-form subscription-form" action="#" method="post" novalidate>
+        <div class="form-group">
+          <label for="suscripcion-nombre">Nombre</label>
+          <input type="text" id="suscripcion-nombre" name="nombre" placeholder="Ingresa tu nombre">
+          <p id="error-nombre" class="error"></p>
+        </div>
 
-    <section id="cuenta" class="section">
-      <div class="section-header">
-        <p class="section-kicker">Mi cuenta</p>
-        <h2>Crea tu usuario y guarda tu historial</h2>
-        <p>En futuras versiones, los usuarios podrán registrarse para guardar sus datos y productos favoritos.</p>
-      </div>
+        <div class="form-group">
+          <label for="suscripcion-email">Email</label>
+          <input type="email" id="suscripcion-email" name="email" placeholder="Ej: nombre@correo.com">
+          <p id="error-email" class="error"></p>
+        </div>
 
-      <div class="account-grid">
-        <article class="category-card">
-          <span class="category-icon">👤</span>
-          <h3>Beneficios de crear una cuenta</h3>
-          <ul class="account-benefits">
-            <li>Guardar historial de compras.</li>
-            <li>Ver productos favoritos.</li>
-            <li>Gestionar datos personales.</li>
-            <li>Recibir futuras ofertas y novedades.</li>
-          </ul>
-        </article>
+        <div class="form-group">
+          <label for="suscripcion-edad">Edad</label>
+          <input type="number" id="suscripcion-edad" name="edad" min="18" placeholder="Ingresa tu edad">
+          <p id="error-edad" class="error"></p>
+        </div>
 
-        <form class="contact-form" action="#" method="post">
-          <div class="form-group">
-            <label for="registro-nombre">Nombre completo</label>
-            <input type="text" id="registro-nombre" name="registro-nombre" placeholder="Ingresa tu nombre" required>
-          </div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="suscripcion-terminos" name="terminos">
+          <label for="suscripcion-terminos">Acepto los términos y condiciones</label>
+        </div>
+        <p id="error-terminos" class="error"></p>
 
-          <div class="form-group">
-            <label for="registro-correo">Correo electrónico</label>
-            <input type="email" id="registro-correo" name="registro-correo" placeholder="Ingresa tu correo" required>
-          </div>
-
-          <div class="form-group">
-            <label for="registro-password">Contraseña</label>
-            <input type="password" id="registro-password" name="registro-password" placeholder="Crea una contraseña" required>
-          </div>
-
-          <div class="form-group">
-            <label for="registro-password2">Confirmar contraseña</label>
-            <input type="password" id="registro-password2" name="registro-password2" placeholder="Confirma tu contraseña" required>
-          </div>
-
-          <p class="form-help">Esta primera versión es visual. Más adelante el registro podrá tener validaciones.</p>
-          <button type="button" class="btn btn-primary">Crear cuenta</button>
-        </form>
-      </div>
+        <p id="mensaje-exito-suscripcion" class="mensaje-exito"></p>
+        <button type="submit" id="boton-suscripcion" class="btn btn-primary" disabled>Suscribirme</button>
+      </form>
     </section>
 
     <section id="contacto" class="section section-alt">
@@ -376,20 +308,6 @@
     </div>
   </footer>
 
-  <script>
-    const menus = document.querySelectorAll(".nav-dropdown details");
-
-    menus.forEach((menu) => {
-      menu.addEventListener("toggle", () => {
-        if (menu.open) {
-          menus.forEach((otroMenu) => {
-            if (otroMenu !== menu) {
-              otroMenu.removeAttribute("open");
-            }
-          });
-        }
-      });
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
